@@ -1,0 +1,36 @@
+@import 'reset';
+$white:#eeeeee;
+$grey:#dedede;
+$mediumred:#ff4949;
+$strongred:#c10000;
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(1, 200px);
+    justify-content: center;
+    align-content: center;
+    grid-gap: 100px;
+}
+
+button{
+    color: $white;
+    background-color: $strongred;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    -webkit-border-radius: 10px;
+    i{
+        margin-bottom: 15px;
+    }
+}
+
+
+button:hover{
+    width: 210px;
+    height: 210px;
+}

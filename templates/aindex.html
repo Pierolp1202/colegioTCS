@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Alumnos</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/aindex.css') }}">
+{% endblock %}
+{% block content %}
+<button type="image">
+        <i class="fas fa-clipboard-list fa-6x"></i>
+        <p>MODIFICAR</p>
+</button>
+<button type="image">
+        <i class="fas fa-user-plus fa-6x"></i>
+        <p>REGISTRAR</p>
+</button>
+{% endblock %}

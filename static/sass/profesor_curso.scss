@@ -1,0 +1,92 @@
+@import 'reset';
+
+#container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+table{
+    border-collapse: collapse;
+    overflow-x:auto;
+    width: 60%;
+    height: 50%;
+    thead{
+        background-color:$strongred;
+        color: $white;
+    }
+    tbody{
+        background-color: $white;
+    }
+
+    th{
+        height: 50px;
+        text-align: left;
+        text-align: center;
+    }
+    td {
+        height: 50px;
+        vertical-align: bottom;
+        text-align: center;
+        vertical-align: middle;
+        input{
+            width: 3rem;
+        }
+      }
+}
+table,th,td{
+    border: 1px solid $grey;
+}
+
+
+a{
+    text-decoration: none;
+    background-color: $strongred;
+    color: $white;
+    padding: 0.5rem 1rem 0.5rem;
+}
+
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+
+#sub-container1{
+    @include size(100vw, 95vh);
+    background: $white;
+}
+
+#sub-container2{
+    @include size(100vw, 100vh);
+    background: $white;
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: 200px;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 100px;
+}
+
+.option{
+    background-color: $strongred;
+    text-align: center;
+    color: $white;
+    border-radius: 20px;
+    i{
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+}
+
+
+.option:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+

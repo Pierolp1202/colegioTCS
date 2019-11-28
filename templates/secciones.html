@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Etapas</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/etapas.css') }}"></link>
+{% endblock %}
+{% block content %}
+<table>
+<thead>
+<tr>
+    <th scope="col" id="col-numero">Número</th>
+    <th scope="col" id="col-nombre">Nombre</th>
+    <th scope="col" id="col-opciones">Opciones</th>
+</tr>
+</thead>
+<tbody>
+    {% for seccion in secciones %}
+    <tr>
+        <td headers="col-numero">{{ seccion.numero }}</td>
+        <td headers="col-nombre">{{ seccion.nombre }}</td>
+        <td headers="col-opciones"><a href="/eliminarSeccion/{{ seccion.nombre }}">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+<div>
+    <form action="" method="post" target="_self">
+        <field>
+            <legend>Sección</legend>
+            <label for="seccion-box">Nombre:</label>
+            <input type="text" id="seccion-box" name="nombre-box" required autofocus>
+            <input type="submit" value="Registrar"> <a href="{{ url_for('grados') }}">Regresar</a>
+        </field>
+    </form>
+</div>
+{% endblock %}

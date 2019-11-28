@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Login</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/login.css')}}">
+{% endblock %}
+{% block content %}
+
+    <div id="fondo-pantalla">
+        <div class="login-text" id="login-text1" data-text="AQUELLOS QUE TE DICEN QUE">AQUELLOS QUE TE DICEN QUE</div>
+        <div class="login-text" id="login-text2" data-text="&quot;NO PUEDES&quot; SON LOS MISMOS">&quot;NO PUEDES&quot; SON LOS MISMOS</div>
+        <div class="login-text" id="login-text3" data-text="QUE TIENEN MIEDO DE QUE LO">QUE TIENEN MIEDO DE QUE LO</div>
+        <div class="login-text" id="login-text4" data-text="LOGRES.">LOGRES.</div>
+    </div>
+    <form action="" method="POST" target="_self" id="form-container">
+            <img alt="colegio_logo" src="{{ url_for('static',filename='imgs/bella.png') }}" height="224px" width="225px">
+        <div id="user-container">
+            <label for="">Usuario:</label>
+            <input type="text" id="user-box" name="user-box" autocomplete="on" tabindex="1" autofocus required>
+        </div>
+        <div id="password-container">
+            <label for="password-box">Contraseña:</label>
+            <input type="password" id="password-box" tabindex="2" name="password-box" required>
+        </div>
+        <p>{{ mensaje }}</p>
+        <input type="submit" value="Login" name="submit-button" name="submit-button">
+    </form>
+
+{% endblock %}

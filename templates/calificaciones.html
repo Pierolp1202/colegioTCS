@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Calificaciones</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/calificaciones.css') }}">
+{% endblock %}
+{% block content %}
+<div id="calificaciones-box">
+    <select id="curso-box" name="curso-box">
+        <optgroup label="Cursos">
+            <option value="">Bilogía</option>
+            <option value="">Religión</option>
+            <option value="">Física</option>
+            <option value="">Química</option>
+        </optgroup>
+    </select>
+    <select id="curso-box" name="curso-box">
+        <optgroup label="Grados">
+            <option value="">1ero A secundaria</option>
+            <option value="">6to E primaria</option>
+            <option value="">4to B secundaria</option>
+            <option value="">3ero A primaria</option>
+        </optgroup>
+    </select>
+    <select id="curso-box" name="curso-box">
+        <optgroup label="Bimestres">
+            <option value="">I Bimestre</option>
+            <option value="">II Bimestre</option>
+            <option value="">III Bimestre</option>
+            <option value="">IV Bimestre</option>
+        </optgroup>
+    </select>
+    <a href="">Filtrar</a>
+    <a href="">Calcular Promedio</a>
+</div>
+<table>
+    <caption></caption>
+    <thead>
+        <tr>
+            <th scope="col" id="col-alumno">Alumno</th>
+            <th scope="col" id="col-nota1">Nota 1</th>
+            <th scope="col" id="col-nota2">Nota 2</th>
+            <th scope="col" id="col-nota3">Nota 3</th>
+            <th scope="col" id="col-nota4">Nota 4</th>
+            <th scope="col" id="col-nota5">Nota 5</th>
+            <th scope="col" id="col-promedio">Promedio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Anthony Raúl Muñante Chávez</td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Jenny Lucía Aguirre Nicho</td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Oscar Alejandro Merino Reyes</td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number"></td>
+            <td><input min="0" max="20" type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Katherine Espíritu Vergara</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Billy Kent Acuña Corahua</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Alisson Carrillo Oré</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Luis Elías Huayta Molleda</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Isabel Ana Alvarado Matos</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Susana Estefanía Villanueva Osorio</td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number"></td>
+            <td><input type="number" readonly></td>
+        </tr>
+        <tr>
+            <td>Cesar Gutierrez Tineo</td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text" readonly></td>
+        </tr>
+        <tr>
+            <td>Kálu Soria Durand</td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text" readonly></td>
+        </tr>
+        <tr>
+            <td>Juan Alexander Joaquin Yanqui</td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text" readonly></td>
+        </tr>
+        <tr>
+            <td>Jorge Gonzalo Vergara Villanueva</td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text" readonly></td>
+        </tr>
+    </tbody>
+</table>
+<a href="">Guardar</a>
+<a href="{{ url_for('index') }}">Regresar</a>
+{% endblock %}

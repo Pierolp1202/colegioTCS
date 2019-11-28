@@ -1,0 +1,18 @@
+@import 'reset';
+$white: #eeeeee;
+$grey: #dedede;
+$mediumred: #ff4949;
+$strongred: #c10000;
+
+#container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 25%;
+    background: $grey;
+}

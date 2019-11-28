@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Registrar Profesores</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesores.css') }}">
+{% endblock %}
+{% block content %}
+    <form action="" method="POST" target="_self">
+        <label for="dni-box">Dni:</label>
+        <input type="text" id="dni-box" name="dni-box" autofocus required>
+        <label for="nombres-box">Nombres</label>
+        <input type="text" id="nombres-box" name="nombres-box" required>
+        <label for="paterno-box">Apellido paterno:</label>
+        <input type="text" id="paterno-box" name="paterno-box" required>
+        <label for="materno-box">Apellido materno:</label>
+        <input type="text" id="materno-box" name="materno-box" required>
+        <label for="celular-box">Celular</label>
+        <input type="text" id="celular-box" name="celular-box" required>
+        <label for="correo-box">Correo:</label>
+        <input type="correo-box" id="correo-box" name="correo-box">
+        <label for="rol-box">Rol:</label>
+        <select id="rol-box" name="rol-box">
+            <option value="docente">Docente</option>
+            <option value="tutor">Tutor</option>
+            <option value="coordinador">Coordinador</option>
+        </select>
+        <input type="submit" id="btn-profesores" name="btn-profesores" value="Registrar">
+        <a href="{{ url_for('iprofesores') }}">Cancelar</a>
+    </form>
+{% endblock %}

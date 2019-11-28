@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Asistencias</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/asistencia.css') }}">
+{% endblock %}
+{% block content %}
+<form action="" method="POST" target="_self">
+<div id="filtro-box">
+    <label for="fecha-box">Fecha:</label>
+    <input type="text" id="fecha-box" name="fecha-box" placeholder="2019-11-21" readonly>
+    <label for="grado-box">Grado:</label>
+    <select id="grado-box" name="grado-box">
+        {% for grado in grados %}
+        <option value="{{ grado.codigo }}">{{ grado.etapa }} '{{ grado.seccion }}' {{ grado.nivel }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="action" value="Filtrar">
+    <a href="">Registrar Asistencia</a>
+</div>
+<table>
+    <caption></caption>
+    <thead>
+        <tr>
+            <th id="col_alumno" scope="col">Alumno</th>
+            <th id="col_asistencia" scope="col">Asistencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr>
+            <td headers="col_alumno">{{ alumno.nombres }} {{ alumno.paterno }} {{ alumno.materno }}</td>
+            <td headers="col_asistencia"><input type="checkbox" id="asistencia-box" name="asistencia-box"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</form>
+<a href="{{ url_for('index') }}">Regresar</a>
+<input type="submit" id="btn-notas" name="btn-notas" value="Registrar">
+{% endblock %}

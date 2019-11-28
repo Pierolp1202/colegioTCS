@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Principal</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+{% endblock %}
+{% block content %}
+<a class="button" href="{{ url_for('asistencia') }}">
+        <i class="far fa-check-circle fa-6x"></i>
+        <p>ASISTENCIA</p>
+</a>
+<a class="button" href="{{ url_for('grados') }}">
+        <i class="fas fa-chart-bar fa-6x"></i>
+        <p>GRADOS</p>
+</a>
+<a class="button" href="/horarios">
+        <i class="far fa-calendar-alt fa-6x"></i>
+        <p>HORARIOS</p>
+</a>
+<a class="button" href="{{ url_for('aulas') }}">
+        <i class="fas fa-home fa-6x"></i>
+        <p>AULAS</p>
+</a>
+<a class="button" href="{{ url_for('alumnos') }}">
+        <i class="fas fa-user-graduate fa-6x"></i>
+        <p>ALUMNOS</p>
+</a>
+<a class="button" href="{{ url_for('calificaciones') }}">
+        <i class="fas fa-clipboard fa-6x"></i>
+        <p>NOTAS</p>
+
+</a>
+<a class="button" href="/profesoresCursos">
+        <i class="fas fa-book fa-6x"></i>
+        <p> CURSOS</p>
+
+</a>
+<a class="button" href="{{ url_for('iprofesores') }}">
+        <i class="fas fa-chalkboard-teacher fa-6x"></i>
+        <p>EMPLEADOS</p>
+
+</a>
+
+
+{% endblock %}

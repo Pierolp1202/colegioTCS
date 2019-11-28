@@ -1,0 +1,118 @@
+$white:#eeeeee;
+$grey:#dedede;
+$mediumred:#ff4949;
+$strongred:#c10000;
+@import 'reset';
+
+body{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
+    background: $strongred;
+}
+*{
+    text-align: center;
+}
+nav{
+    grid-row: 1/2;
+    grid-column: 1/ span 12;
+}
+#container{
+    grid-row: 2/ span 12;
+    grid-column: 1/span 12;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+main{
+    grid-column: 3/span 12;
+    grid-row: 1/span 12;
+    background: $grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#horario{
+    background: $white;
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(1, 100%);
+    min-height: 500px;
+    overflow-y: scroll;
+    
+}
+
+.dia{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.dia .dia-nombre{
+    border-bottom: 1px solid black;
+    height: 48px;
+    background: $strongred;
+    color: $white;
+    padding-top: 16px;
+}
+
+#dropables{
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+aside{
+    grid-column: 1/ 3;
+    grid-row: 1/span 12;
+    background: $white;
+}
+
+.drop{
+    
+    color: $white;
+    height: 100px;
+    background: $strongred;
+    border: 1px solid $white;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+
+    p{
+        position: relative;
+    }
+}
+
+
+#horario::-webkit-scrollbar{
+    display: none;
+}
+
+#filtro{
+    margin-bottom: 20px;
+    width: 500px;
+    height: 50px;
+    background: $strongred;
+    *{
+        margin:15px;
+    }
+    button{
+        width: 80px;
+        color: $white;
+        padding: 16px auto;
+        background: $strongred;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    a{
+        cursor: pointer;
+        text-decoration: none;
+        color: $white;
+        font-size: 1rem;
+    }
+}

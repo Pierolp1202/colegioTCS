@@ -1,0 +1,57 @@
+@import 'reset';
+$white:#eeeeee;
+$grey:#dedede;
+$mediumred:#ff4949;
+$strongred:#c10000;
+
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+#filtro-box{
+    margin-bottom: 15px;
+    a{
+        text-decoration: none;
+        background-color: $strongred;
+        color: $white;
+        padding: 0.5rem 1rem 0.5rem;
+    }
+}
+
+table, th, td{
+    border: 1px solid $grey;
+}
+table{
+    border-collapse: collapse;
+    overflow-x:auto;
+    width: 60%;
+    height: 50%;
+    thead{
+        background-color:$strongred;
+        color: $white;
+    }
+    tbody{
+        background-color: $white;
+    }
+
+    th{
+        height: 50px;
+        text-align: left;
+        text-align: center;
+    }
+    td {
+        height: 50px;
+        vertical-align: bottom;
+      }
+    td[headers="col_asistencia"]{
+        text-align: center;
+        vertical-align:middle;
+    }
+}
+

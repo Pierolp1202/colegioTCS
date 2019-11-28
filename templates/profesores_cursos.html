@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Grados</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesor_curso.css') }}">
+{% endblock %}
+{% block content %}
+<div id="sub-container1">
+    <table>
+        <thead>
+            <tr>
+                <th scope="col" id="col-curso">Curso</th>
+                <th scope="col" id="col-profesor">Profesor</th>
+                <th scope="col" id="col-opciones">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profesor_curso in profesores_cursos %}
+            <tr>
+                <td headers="col-curso">{{ profesor_curso.curso }}</td>
+                <td headers="col-profesor">{{ profesor_curso.profesor }}</td>
+                <td headers="col-opciones"><a href="/eliminarProfesorCurso/{{ profesor_curso.dni}}/{{ profesor_curso.codigo }}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <form action="" method="POST" target="_self">
+            <fieldset>
+                <legend>Asignar</legend>
+                <label for="curso-box">Curso:</label>
+                <select id="curso-box" name="curso-box">
+                    {% for curso in cursos %}
+                    <option value="{{ curso.codigo }}">{{ curso.nombre }}</option>
+                    {% endfor %}
+                </select>
+                <label for="profesor-box">Profesor:</label>
+                <select id="profesor-box" name="profesor-box">
+                    {% for profesor in profesores %}
+                    <option value="{{ profesor.dni }}">{{ profesor.nombres }} {{ profesor.paterno }} {{ profesor.materno }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Agregar">
+                <a href="{{ url_for('index') }}">Regresar</a>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+<div id="sub-container2">
+    <a class="option" href="{{ url_for('cursos') }}">
+        <i class="fas fa-glasses fa-6x"></i>
+        <p>CURSOS</p>
+    </a>
+</div>
+{% endblock %}

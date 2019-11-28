@@ -1,0 +1,72 @@
+@import 'reset';
+$white:#eeeeee;
+$grey:#dedede;
+$mediumred:#ff4949;
+$strongred:#c10000;
+
+#container{
+    width: 100vw;
+    height: 100vh;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    background-image: url('../imgs/auditorium-benches-chairs-207691.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#fondo-pantalla{
+    grid-column: 1/span 9;
+    grid-row: 1/span 12;
+    background-color: $strongred;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+#form-container{
+    grid-column: 10/ span 12;
+    grid-row: 1/ span 12;
+    background-color: $white;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    #user-container, #password-container{
+        width:60%;
+        margin-bottom:15px;
+        input{
+            text-align: center;
+            width: 100%;
+        }
+        label{
+            text-align: left;
+        }
+    }
+
+    input[type="submit"]{
+        padding: 0.3rem 1.2rem 0.3rem;
+        color:$white;
+        background-color: $strongred;
+    }
+    img{
+        width: 180px;
+        height: 180px;
+    }
+}
+
+.login-text{
+    font-size: 300%;
+    color: $white;
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+

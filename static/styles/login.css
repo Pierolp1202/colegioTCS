@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 100vw;
+  height: 50px;
+  background: #c10000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+nav p, nav a {
+  height: 2rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: #eeeeee;
+}
+nav a:nth-child(2) {
+  margin-right: 25px;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  background-image: url("../imgs/auditorium-benches-chairs-207691.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#fondo-pantalla {
+  grid-column: 1/span 9;
+  grid-row: 1/span 12;
+  background-color: #c10000;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-container {
+  grid-column: 10/span 12;
+  grid-row: 1/span 12;
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#form-container #user-container, #form-container #password-container {
+  width: 60%;
+  margin-bottom: 15px;
+}
+#form-container #user-container input, #form-container #password-container input {
+  text-align: center;
+  width: 100%;
+}
+#form-container #user-container label, #form-container #password-container label {
+  text-align: left;
+}
+#form-container input[type=submit] {
+  padding: 0.3rem 1.2rem 0.3rem;
+  color: #eeeeee;
+  background-color: #c10000;
+}
+#form-container img {
+  width: 180px;
+  height: 180px;
+}
+
+.login-text {
+  font-size: 300%;
+  color: #eeeeee;
+  font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=login.css.map */
