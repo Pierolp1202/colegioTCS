@@ -1,35 +1,46 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Profesores</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/iprofesores.css') }}">
-{% endblock %}
-{% block content %}
-<table>
-    <thead>
-        <tr>
-            <th scope="col" id="col-dni">Dni</th>
-            <th scope="col" id="col-nombres">Nombres</th>
-            <th scope="col" id="col-paterno">Apellido paterno</th>
-            <th scope="col" id="col-materno">Apellido materno</th>
-            <th scope="col" id="col-celular">Celular</th>
-            <th scope="col" id="col-correo">Correo</th>
-            <th scope="col" id="col-opciones">Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for profesor in profesores %}
-        <tr>
-            <td headers="col-dni">{{ profesor.dni }}</td>
-            <td headers="col-nombres">{{ profesor.nombres }}</td>
-            <td headers="col-paterno">{{ profesor.paterno }}</td>
-            <td headers="col-materno">{{ profesor.materno }}</td>
-            <td headers="col-celular">{{ profesor.celular }}</td>
-            <td headers="col-correo">{{ profesor.correo }}</td>
-            <td><a href="/eliminarProfesor/{{ profesor.dni }}">Eliminar</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<a href="{{ url_for('index') }}">Regresar</a>
-<a href="{{ url_for('profesores') }}">Nuevo</a>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/iprofesores.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">REGISTRO DE TRABAJADORES DE LA INSTITUCION</h1>
+{% endblock %} {% block content %}
+<section style="width: 500px; margin:0 auto; background-color: white; padding:20px 20px 40px 20px; color:#999; border-radius: 25px; margin-bottom: 20px;">
+    <fieldset style="padding:25px; align-content:center;">
+        <legend>OPCIONES</legend>
+        <a href="{{ url_for('profesores') }}" style=" margin-left:70px; margin-right:50px; padding: 10px 30px; ">Nuevo</a>
+        <a href="{{ url_for( 'index') }} " style="padding: 10px 30px; ">Regresar</a>
+
+    </fieldset>
+</section>
+<section id="tablatrabajadores " style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px; ">
+    <fieldset style="padding:20px; ">
+        <legend><strong>LISTA DE TRABAJADORES</strong></legend>
+        <table style="margin: 60px auto; width: 1000px; ">
+            <thead>
+                <tr>
+                    <th scope="col " id="col-dni " style="width: 80px; border-radius: 10px; ">Dni</th>
+                    <th scope="col " id="col-nombres " style="width: 200px; border-radius: 10px; ">Nombres</th>
+                    <th scope="col " id="col-paterno " style="width: 150px; border-radius: 10px; ">Apellido paterno</th>
+                    <th scope="col " id="col-materno " style="width: 150px; border-radius: 10px; ">Apellido materno</th>
+                    <th scope="col " id="col-celular " style="width: 90px; border-radius: 10px; ">Celular</th>
+                    <th scope="col " id="col-correo " style="width: 110px; border-radius: 10px; ">Correo</th>
+                    <th scope="col " id="col-opciones " style="width: 110px; border-radius: 10px; ">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for profesor in profesores %}
+                <tr>
+                    <td headers="col-dni ">{{ profesor.dni }}</td>
+                    <td headers="col-nombres ">{{ profesor.nombres }}</td>
+                    <td headers="col-paterno ">{{ profesor.paterno }}</td>
+                    <td headers="col-materno ">{{ profesor.materno }}</td>
+                    <td headers="col-celular ">{{ profesor.celular }}</td>
+                    <td headers="col-correo ">{{ profesor.correo }}</td>
+                    <td><a href="/eliminarProfesor/{{ profesor.dni }} ">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+</section>
+
 {% endblock %}

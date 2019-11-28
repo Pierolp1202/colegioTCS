@@ -2,26 +2,31 @@
 <html lang="es">
 
 <head>
-    {% block head%}
-    {% endblock %}
+    {% block head%} {% endblock %}
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" type="type/css" href="../static/styles/normalize.css">
+    <link rel="stylesheet" type="type/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/5d104a24f6.js" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link rel="icon" href="../static/imgs/icon_logo.png">
 </head>
 
 <body>
     {% if current_user.is_authenticated %}
-    <nav>
-        <p>{{ current_user.get_id() }}</p>
-        <a href="{{ url_for('salir') }}">Salir</a>
+    <nav style="width:100%; background: #c10000;">
+        <p>! Bienvendio {{ current_user.get_id() }} ¡</p>
+        <a href="{{ url_for('salir') }}">Cerrar Sesión</a>
     </nav>
     {% endif %}
-    <div id="container">
-        {% block content%}
-        {% endblock %}
+    <div id="titulo" style="text-align: center; background: #ccc; padding-top:20px; margin:0 auto;">
+        {% block titulo%}{% endblock %}
+    </div>
+    <div id="container" style="background: #ccc; height: auto; padding-top:50px; padding-bottom: 150px;">
+        {% block content%} {% endblock %}
     </div>
 </body>
+
 </html>

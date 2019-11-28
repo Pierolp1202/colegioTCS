@@ -1,74 +1,45 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Asistencias</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/dropable.css') }}">
 <script type="text/javascript" src="{{ url_for('static', filename='js/dropable.js') }}"></script>
-{% endblock %}
-{% block content %}
+{% endblock %}{% block titulo%} {% endblock %} {% block content %}
 <aside>
     <div id="dropables">
-      {% set count = namespace(value=0) %}
-      {% for profesor_curso in profesores_cursos %}
-      <div class="drop" id="drop{{ count.value }}" draggable="true" ondragstart="drag(event)">
-      <p>{{ profesor_curso.curso }}</p>
-      <p>{{ profesor_curso.profesor }}</p>
-      <p>Horario</p>
+        {% set count = namespace(value=0) %} {% for profesor_curso in profesores_cursos %}
+        <div class="drop" id="drop{{ count.value }}" draggable="true" ondragstart="drag(event)">
+            <p>{{ profesor_curso.curso }}</p>
+            <p>{{ profesor_curso.profesor }}</p>
+            <p>Horario</p>
+        </div>
+        {% set count.value = count.value + 1 %} {% endfor %}
     </div>
-        {% set count.value = count.value + 1 %}
-      {% endfor %}
-    </div>
-  </aside>
-  <main>
+</aside>
+<main>
     <div id="filtro">
-      <select>
+        <select>
         <option>PRIMERO A SECUNDARIA</option>
         <option>SEGUNDO B PRIMARIA</option>
         <option>TERCERO A PRIMARIA</option>
       </select>
-      <button id="cmd">Guardar</button>
-      <a href="/index">Regresar</a>
+        <button id="cmd">Guardar</button>
+        <a href="/index">Regresar</a>
     </div>
     <div id="horario">
-      <div
-        class="dia"
-        id="dia1"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        <p class="dia-nombre">Lunes</p>
-      </div>
-      <div
-        class="dia"
-        id="dia2"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        <p class="dia-nombre">Martes</p>
-      </div>
-      <div
-        class="dia"
-        id="dia3"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        <p class="dia-nombre">Miércoles</p>
-      </div>
-      <div
-        class="dia"
-        id="dia4"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        <p class="dia-nombre">Jueves</p>
-      </div>
-      <div
-        class="dia"
-        id="dia5"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        <p class="dia-nombre">Viernes</p>
-      </div>
+        <div class="dia" id="dia1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="dia-nombre">Lunes</p>
+        </div>
+        <div class="dia" id="dia2" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="dia-nombre">Martes</p>
+        </div>
+        <div class="dia" id="dia3" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="dia-nombre">Miércoles</p>
+        </div>
+        <div class="dia" id="dia4" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="dia-nombre">Jueves</p>
+        </div>
+        <div class="dia" id="dia5" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="dia-nombre">Viernes</p>
+        </div>
     </div>
-  </main>
+</main>
 {% endblock %}

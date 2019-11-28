@@ -1,29 +1,41 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Ambientes</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/aulas.css') }}">
-{% endblock %}
-{% block content %}
-<table>
-    <thead>
-        <tr>
-            <th scope="col" id="col-codigo">Código</th>
-            <th scope="col" id="col-capacidad">Capacidad</th>
-            <th scope="col" id="col-piso">Piso</th>
-            <th scope="col" id="col-opciones">Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for aula in aulas %}
-        <tr>
-            <td headers="col-codigo">{{ aula.codigo }}</td>
-            <td headers="col-capacidad">{{ aula.capacidad }}</td>
-            <td headers="col-piso">{{ aula.piso }}</td>
-            <td><a href="/eliminarAula/{{ aula.codigo }}">Eliminar</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<a href="{{ url_for('index') }}">Regresar</a>
-<a href="{{ url_for('raulas') }}">Nuevo</a>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/aulas.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">GESTION DE LAS AULAS</h1>
+{% endblock %} {% block content %}
+<section style="width: 500px; margin:0 auto; background-color: white; padding:20px 20px 40px 20px; color:#999; border-radius: 25px; margin-bottom: 20px;">
+    <fieldset style="padding:25px; align-content:center;">
+        <legend>OPCIONES</legend>
+        <a href="{{ url_for('raulas') }}" style="margin-left:70px; margin-right:50px; padding: 10px 30px;">Nuevo</a>
+        <a href="{{ url_for('index') }}" style="padding: 10px 30px;">Regresar</a>
+
+    </fieldset>
+
+
+</section>
+<section d="tablaaulas" style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px;">
+    <fieldset style="padding:20px; ">
+        <legend><strong>REGISTRO DE LAS AULAS</strong></legend>
+        <table style="margin: 60px auto; width: 1000px;">
+            <thead>
+                <tr>
+                    <th scope="col" id="col-codigo" style="width: 110px; border-radius: 10px;">Código</th>
+                    <th scope="col" id="col-capacidad" style="width: 180px; border-radius: 10px;">Capacidad</th>
+                    <th scope="col" id="col-piso" style="width: 180px; border-radius: 10px;">Piso</th>
+                    <th scope="col" id="col-opciones" style="width: 180px; border-radius: 10px;">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aula in aulas %}
+                <tr>
+                    <td headers="col-codigo">{{ aula.codigo }}</td>
+                    <td headers="col-capacidad">{{ aula.capacidad }}</td>
+                    <td headers="col-piso">{{ aula.piso }}</td>
+                    <td><a href="/eliminarAula/{{ aula.codigo }}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+</section>
 {% endblock %}

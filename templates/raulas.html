@@ -1,17 +1,20 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Registrar Aula</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/raulas.css') }}">
-{% endblock %}
-{% block content %}
-<form action="" method="POST" target="_self">
-<label for="codigo-box">Código:</label>
-<input type="text" pattern="[0-9]+" id="codigo-box" name="codigo-box" required autofocus>
-<label for="capacidad-box">Capacidad:</label>
-<input type="number" min="10" max="50" id="capacidad-box" name="capacidad-box" required>
-<label for="piso-box">Piso:</label>
-<input type="number" min="1" max="3" id="piso-box" name="piso-box">
-<a href="{{ url_for('aulas') }}">Regresar</a>
-<input type="submit" name="btn-aula" value="Registrar">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesores.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999; ">INGRESE UNA NUEVA AULA</h1>
+{% endblock %} {% block content %}
+<form action="" method="POST" target="_self" style="width: 400px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+    <p>CODIGO</p>
+    <input type="text" pattern="[0-9]+" id="codigo-box" name="codigo-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required autofocus>
+    <p>Capacidad</p>
+    <input type="number" min="10" max="50" id="capacidad-box" name="capacidad-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Piso</p>
+    <input type="number" min="1" max="3" id="piso-box" name="piso-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;">
+    <section style="text-align: center; margin-top: 30px;">
+        <input type="submit" name="btn-aula" value="Registrar" style=" margin: 0px 15px; background-color: red;width:250px; height: 40px; margin-bottom:10px;">
+        <a href="{{ url_for('aulas') }}" style="text-decoration: none; font-size:15px;">Regresar</a>
+    </section>
+
+
 </form>
 {% endblock %}

@@ -1,29 +1,32 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Registrar Profesores</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesores.css') }}">
-{% endblock %}
-{% block content %}
-    <form action="" method="POST" target="_self">
-        <label for="dni-box">Dni:</label>
-        <input type="text" id="dni-box" name="dni-box" autofocus required>
-        <label for="nombres-box">Nombres</label>
-        <input type="text" id="nombres-box" name="nombres-box" required>
-        <label for="paterno-box">Apellido paterno:</label>
-        <input type="text" id="paterno-box" name="paterno-box" required>
-        <label for="materno-box">Apellido materno:</label>
-        <input type="text" id="materno-box" name="materno-box" required>
-        <label for="celular-box">Celular</label>
-        <input type="text" id="celular-box" name="celular-box" required>
-        <label for="correo-box">Correo:</label>
-        <input type="correo-box" id="correo-box" name="correo-box">
-        <label for="rol-box">Rol:</label>
-        <select id="rol-box" name="rol-box">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesores.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">INGRESE LOS DATOS DEL NUEVO EMPLEADO</h1>
+{% endblock %} {% block content %}
+<form action="" method="POST" target="_self" style="width: 400px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+    <p>DNI</p>
+    <input type="text" id="dni-box" name="dni-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Nombres</p>
+    <input type="text" id="nombres-box" name="nombres-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Apellido paterno</p>
+    <input type="text" id="paterno-box" name="paterno-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Apellido materno</p>
+    <input type="text" id="materno-box" name="materno-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Celular</p>
+    <input type="text" id="celular-box" name="celular-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;" required>
+    <p>Correo</p>
+    <input type="correo-box" id="correo-box" name="correo-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;">
+    <p>Rol</p>
+    <select id="rol-box" name="rol-box" style="outline: none; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc; width:300px;">
             <option value="docente">Docente</option>
             <option value="tutor">Tutor</option>
             <option value="coordinador">Coordinador</option>
         </select>
-        <input type="submit" id="btn-profesores" name="btn-profesores" value="Registrar">
-        <a href="{{ url_for('iprofesores') }}">Cancelar</a>
-    </form>
+    <section style="align-content: center; margin-top: 30px;">
+        <input type="submit" id="btn-profesores" name="btn-profesores" value="Registrar" style=" margin: 0px 30px; font-size:15px; background-color: #c10000;
+        color: #eeeeee; padding:14px 20px; border: none; ">
+        <a href="{{ url_for('iprofesores') }}" style=" margin: 0px 15px; text-decoration: none; background-color: #c10000;
+        color: #eeeeee; font-size:15px; padding:12px 20px;">Cancelar</a>
+    </section>
+</form>
 {% endblock %}

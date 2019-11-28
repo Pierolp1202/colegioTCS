@@ -1,82 +1,98 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Grados</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/grados.css') }}">
-{% endblock %}
-{% block content %}
-<div id="sub-container1">
-    <table>
-        <thead>
-            <tr>
-                <th scope="col" id="col-codigo">Código</th>
-                <th scope="col" id="col-etapa">Etapa</th>
-                <th scope="col" id="col-seccion">Sección</th>
-                <th scope="col" id="col-nivel">Nivel</th>
-                <th scope="col" id="col-aula">Aula</th>
-                <th scope="col" id="col-opciones">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for grado in grados %}
-            <tr>
-                <td headers="col-codigo">{{ grado.codigo }}</td>
-                <td headers="col-etapa">{{ grado.etapa }}</td>
-                <td headers="col-seccion">{{ grado.seccion }}</td>
-                <td headers="col-nivel">{{ grado.nivel }}</td>
-                <td headers="col-aula">{{ grado.aula }}</td>
-                <td headers="col-opciones"><a href="/eliminarGrado/{{ grado.codigo }}">Eliminar</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div>
-        <form action="" method="post" target="_self">
-            <fieldset>
-                <legend>Grado</legend>
-                <label for="etapa-box">Etapa:</label>
-                <select id="etapa-box" name="etapa-box">
-                    {% for etapa in etapas %}
-                    <option value="{{ etapa.numero }}">{{ etapa.nombre }}</option>
-                    {% endfor %}
-                </select>
-                <label for="seccion-box">Sección:</label>
-                <select id="seccion-box" name="seccion-box">
-                    {% for seccion in secciones %}
-                    <option value="{{ seccion.numero }}">{{ seccion.nombre }}</option>
-                    {% endfor %}
-                </select>
-                <label for="nivel-box">Nivel</label>
-                <select id="nivel-box" name="nivel-box">
-                    {% for nivel in niveles %}
-                    <option value="{{ nivel.numero }}">{{ nivel.nombre }}</option>
-                    {% endfor %}
-                </select>
-                <label for="aula-box">Aula</label>
-                <select id="aula-box" name="aula-box">
-                    {% for aula in aulas %}
-                    <option value="{{ aula.codigo }}">{{ aula.codigo }}</option>
-                    {% endfor %}
-                </select>
-                
-                <input type="submit" value="Agregar">
-                <a href="{{ url_for('index') }}">Regresar</a>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/grados.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">REGISTRO DE GRADOS</h1>
+{% endblock %} {% block content %}
+<div id="sub-container1" style="background: #ccc; height: 1250px;">
+    <section style="margin-bottom: 20px;">
+        <form action="" method="post" target="_self" style="width: 1300px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+            <fieldset style="padding:20px;">
+                <legend><strong>GRADO</strong></legend>
+                <span>
+                            <h3 style="margin:0 10px; display: inline;">ETAPA</h3>
+                            <select id="etapa-box" name="etapa-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                                {% for etapa in etapas %}
+                                <option value="{{ etapa.numero }}">{{ etapa.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                <span>
+                            <h3 style="margin:0 10px; display: inline;">SECCION</h3>
+                            <select id="seccion-box" name="seccion-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                                {% for seccion in secciones %}
+                                <option value="{{ seccion.numero }}">{{ seccion.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                <span>
+                            <h3 style="margin:0 10px; display: inline;">NIVEL</h3>
+                            <select id="nivel-box" name="nivel-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                                {% for nivel in niveles %}
+                                <option value="{{ nivel.numero }}">{{ nivel.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                <span>
+                            <h3 style="margin:0 10px; display: inline;">AULA</h3>
+                            <select id="aula-box" name="aula-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                                {% for aula in aulas %}
+                                <option value="{{ aula.codigo }}">{{ aula.codigo }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
             </fieldset>
+            <section style="text-align: center; margin-top: 30px;">
+                <input type="submit" value="Agregar" style=" margin: 0px 30px;  font-size:15px; background-color: #c10000;
+                        color: #eeeeee; padding:14px 20px; border: none; ">
+                <a href="{{ url_for('index') }}" style=" margin: 0px 15px; text-decoration: none; background-color: #c10000;
+                        color: #eeeeee; font-size:15px; padding:12px 20px;">Regresar</a>
+            </section>
         </form>
+    </section>
+    <section id="tablaseccion" style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px;">
+        <fieldset style="padding:20px; ">
+            <legend><strong>REGISTRO DE LOS GRADOS</strong></legend>
+            <table style="margin: 60px auto; width: 1000px;">
+                <thead>
+                    <tr>
+                        <th scope="col" id="col-codigo" style="width: 110px; border-radius: 10px;">Código</th>
+                        <th scope="col" id="col-etapa" style="width: 180px; border-radius: 10px;">Etapa</th>
+                        <th scope="col" id="col-seccion" style="width: 180px; border-radius: 10px;">Sección</th>
+                        <th scope="col" id="col-nivel" style="width: 180px; border-radius: 10px;">Nivel</th>
+                        <th scope="col" id="col-aula" style="width: 180px; border-radius: 10px;">Aula</th>
+                        <th scope="col" id="col-opciones" style="width: 180px; border-radius: 10px;">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grado in grados %}
+                    <tr>
+                        <td headers="col-codigo">{{ grado.codigo }}</td>
+                        <td headers="col-etapa">{{ grado.etapa }}</td>
+                        <td headers="col-seccion">{{ grado.seccion }}</td>
+                        <td headers="col-nivel">{{ grado.nivel }}</td>
+                        <td headers="col-aula">{{ grado.aula }}</td>
+                        <td headers="col-opciones"><a href="/eliminarGrado/{{ grado.codigo }}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </fieldset>
+    </section>
+</div>
+<section style="width: 1000px; margin:0 auto; background-color: white; padding:20px 20px 200px 0px; color:#999; border-radius: 35px;">
+    <div id="sub-container2" style="background: #ccc; height: 0px; margin-top: 150px; padding-right: 900px;">
+        <a class="option" href="{{ url_for('niveles') }}">
+            <i class="fas fa-glasses fa-6x"></i>
+            <p>NIVELES</p>
+        </a>
+        <a class="option" href="{{ url_for('secciones') }}">
+            <i class="fas fa-user-friends fa-6x"></i>
+            <p>SECCIONES</p>
+        </a>
+        <a class="option" href="{{ url_for('etapas') }}">
+            <i class="fas fa-portrait fa-6x"></i>
+            <p>ETAPAS</p>
+        </a>
     </div>
-
-</div>
-<div id="sub-container2">
-    <a class="option" href="{{ url_for('niveles') }}">
-        <i class="fas fa-glasses fa-6x"></i>
-        <p>NIVELES</p>
-    </a>
-    <a class="option" href="{{ url_for('secciones') }}">
-        <i class="fas fa-user-friends fa-6x"></i>
-        <p>SECCIONES</p>
-    </a>
-    <a class="option" href="{{ url_for('etapas') }}">
-        <i class="fas fa-portrait fa-6x"></i>
-        <p>ETAPAS</p>
-    </a>
-</div>
+</section>
 {% endblock %}

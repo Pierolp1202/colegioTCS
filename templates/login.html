@@ -1,28 +1,38 @@
-{% extends 'base.html'%}
-{% block head %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="type/css" href="../static/styles/normalize.css">
+    <link rel="icon" href="../static/imgs/icon_logo.png">
+</head>
+
 <title>Login</title>
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/login.css')}}">
-{% endblock %}
-{% block content %}
 
-    <div id="fondo-pantalla">
+<div id="container" style="background: #ccc; width:100%;">
+    <div id="fondo-pantalla" style="background-image: linear-gradient(rgba(124, 4, 4, 0.8),rgba(231, 8, 8, 0.8)),url('/static/imgs/auditorium-benches-chairs-207691.jpg'); max-width: 100%; height: 100vh;">
         <div class="login-text" id="login-text1" data-text="AQUELLOS QUE TE DICEN QUE">AQUELLOS QUE TE DICEN QUE</div>
         <div class="login-text" id="login-text2" data-text="&quot;NO PUEDES&quot; SON LOS MISMOS">&quot;NO PUEDES&quot; SON LOS MISMOS</div>
         <div class="login-text" id="login-text3" data-text="QUE TIENEN MIEDO DE QUE LO">QUE TIENEN MIEDO DE QUE LO</div>
         <div class="login-text" id="login-text4" data-text="LOGRES.">LOGRES.</div>
     </div>
     <form action="" method="POST" target="_self" id="form-container">
-            <img alt="colegio_logo" src="{{ url_for('static',filename='imgs/bella.png') }}" height="224px" width="225px">
-        <div id="user-container">
-            <label for="">Usuario:</label>
-            <input type="text" id="user-box" name="user-box" autocomplete="on" tabindex="1" autofocus required>
-        </div>
-        <div id="password-container">
-            <label for="password-box">Contraseña:</label>
-            <input type="password" id="password-box" tabindex="2" name="password-box" required>
-        </div>
-        <p>{{ mensaje }}</p>
-        <input type="submit" value="Login" name="submit-button" name="submit-button">
-    </form>
+        <img alt="colegio_logo" src="{{ url_for('static',filename='imgs/bella.png') }}" height="500px" width="300px">
+        <section style="width:70%; align-content: center; border: 5px red solid; background: #ccc;">
+            <div id="user-container" style="padding-top: 40px; padding-left: 40px; width: 80%;">
+                <label for="">Usuario:</label>
+                <input type="text" id="user-box" name="user-box" autocomplete="on" tabindex="1" autofocus required>
+            </div>
+            <div id="password-container" style="padding-left: 40px; padding-bottom: 30px; width: 80%;">
+                <label for="password-box">Contraseña:</label>
+                <input type="password" id="password-box" tabindex="2" name="password-box" required>
+                <p style="padding-bottom: 30px;">{{ mensaje }}</p>
+                <input type="submit" value="Login" name="submit-button" name="submit-button">
+            </div>
 
-{% endblock %}
+        </section>
+    </form>
+</div>

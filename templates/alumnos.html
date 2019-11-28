@@ -1,81 +1,94 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Grados</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/alumnos.css') }}">
-{% endblock %}
-{% block content %}
-<div id="sub-container1">
-    <table>
-        <thead>
-            <tr>
-                <th scope="col" id="col-dni">Dni</th>
-                <th scope="col" id="col-nombres">Nombres</th>
-                <th scope="col" id="col-paterno">Paterno</th>
-                <th scope="col" id="col-materno">Materno</th>
-                <th scope="col" id="col-grado">Grado</th>
-                <th scope="col" id="col-edad">Edad</th>
-                <th scope="col" id="col-sexo">Sexo</th>
-                <th scope="col" id="col-apoderado">Apoderado</th>
-                <th scope="col" id="col-opciones">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for alumno in alumnos %}
-            <tr>
-                <td headers="col-dni">{{ alumno.dni }}</td>
-                <td headers="col-nombres">{{ alumno.nombres }}</td>
-                <td headers="col-paterno">{{ alumno.paterno }}</td>
-                <td headers="col-materno">{{ alumno.materno }}</td>
-                <td headers="col-grado">{{ alumno.grado }}</td>
-                <td headers="col-edad">{{ alumno.edad }}</td>
-                <td headers="col-sexo">{{ alumno.sexo }}</td>
-                <td headers="col-apoderado">{{ alumno.apoderado }}</td>
-                <td headers="col-opciones"><a href="/eliminarAlumno/{{ alumno.dni }}">Eliminar</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div>
-        <form action="" method="post" target="_self">
-            <fieldset>
-                <legend>Alumno</legend>
-                <label>Dni</label>
-                <input type="text" id="dni-box" name="dni-box">
-                
-                <label>Nombres</label>
-                <input type="text" id="nombres-box" name="nombres-box">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/alumnos.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">MATRICULA DE ALUMNOS</h1>
+{% endblock %} {% block content %}
+<section style="margin-bottom: 20px;">
+    <form action="" method="post" target="_self" style="width: 1300px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+        <fieldset style="padding:20px;">
+            <legend><strong>FICHA DE MATRICULA DE ALUMNO</strong></legend>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">DNI</h3>
+                    <input type="text" id="dni-box" name="dni-box" style="width:200px; padding:10px; margin:10px 0px; margin-right: 20px; font-size:0.8em; border: solid 1px #ccc;">
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">NOMBRES</h3>
+                    <input type="text" id="nombres-box" name="nombres-box" style="width:350px; padding:10px; margin:10px 0px; margin-right: 20px;font-size:0.8em; border: solid 1px #ccc;" >
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">APELL. PAT.</h3>
+                    <input type="text" id="paterno-box" name="paterno-box" style="width:230px; padding:10px; margin:10px 0px;margin-right: 20px; font-size:0.8em; border: solid 1px #ccc;">
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">APELL. MAT.</h3>
+                    <input type="text" id="materno-box" name="materno-box" style="width:230px; padding:10px; margin:10px 0px; margin-right: 20px; font-size:0.8em; border: solid 1px #ccc;">
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">GRADO</h3>
+                    <select id="grado-box" name="grado-box" style="width:150px; padding:10px; margin:10px 0px; margin-right: 20px; font-size:0.8em; border: solid 1px #ccc;">
+                                    {% for grado in grados %}
+                                    <option value="{{ grado.codigo }}">{{ grado.etapa }} '{{ grado.seccion }}' {{ grado.nivel }}</option>
+                                    {% endfor %}
+                    </select>
+            </span>
+            <span>  
+                    <h3 style="margin:0 10px; display: inline;">EDAD</h3> 
+                    <input type="number" id="edad-box" name="edad-box" min="6" max="99" style="width:100px; padding:10px; margin:10px 0px; margin-right: 20px; font-size:0.8em; border: solid 1px #ccc;">
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">GENERO</h3>
+                    <select id="sexo-box" name="sexo-box" type="number" id="edad-box" name="edad-box" min="6" max="99" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                    </select>
+            </span>
+            <span>
+                    <h3 style="margin:0 10px; display: inline;">APODERADO</h3>
+                    <input type="text" id="apoderado-box" name="apoderado-box" style="width:600px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+            </span>
+        </fieldset>
+        <section style="text-align: center; margin-top: 30px;">
+            <input type="submit" value="Agregar" style=" margin: 0px 30px;  font-size:15px; background-color: #c10000;
+                        color: #eeeeee; padding:14px 50px; border: none; ">
+            <a href="{{ url_for('index') }}" style=" margin: 0px 15px; text-decoration: none; background-color: #c10000;
+                        color: #eeeeee; font-size:15px; padding:12px 50px;">Regresar</a>
+        </section>
+    </form>
+</section>
+<section id="tablaseccion" style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px;">
+    <fieldset style="padding:20px; ">
+        <legend><strong>LISTADO DE LOS ALUMNOS MATRICULADOS</strong></legend>
+        <table style="margin: 60px auto; width: 1000px;">
+            <thead>
+                <tr>
+                    <th scope="col" id="col-dni" style="width: 90px; border-radius: 10px;">Dni</th>
+                    <th scope="col" id="col-nombres" style="width: 200px; border-radius: 10px;">Nombres</th>
+                    <th scope="col" id="col-paterno" style="width: 150px; border-radius: 10px;">Paterno</th>
+                    <th scope="col" id="col-materno" style="width: 150px; border-radius: 10px;">Materno</th>
+                    <th scope="col" id="col-grado" style="width: 150px; border-radius: 10px;">Grado</th>
+                    <th scope="col" id="col-edad" style="width: 60px; border-radius: 10px;">Edad</th>
+                    <th scope="col" id="col-sexo" style="width: 90px; border-radius: 10px;">Sexo</th>
+                    <th scope="col" id="col-apoderado" style="width: 200px; border-radius: 10px;">Apoderado</th>
+                    <th scope="col" id="col-opciones" style="width: 100px; border-radius: 10px;">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td headers="col-dni">{{ alumno.dni }}</td>
+                    <td headers="col-nombres">{{ alumno.nombres }}</td>
+                    <td headers="col-paterno">{{ alumno.paterno }}</td>
+                    <td headers="col-materno">{{ alumno.materno }}</td>
+                    <td headers="col-grado">{{ alumno.grado }}</td>
+                    <td headers="col-edad">{{ alumno.edad }}</td>
+                    <td headers="col-sexo">{{ alumno.sexo }}</td>
+                    <td headers="col-apoderado">{{ alumno.apoderado }}</td>
+                    <td headers="col-opciones"><a href="/eliminarAlumno/{{ alumno.dni }}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+</section>
 
-                <label>Paterno</label>
-                <input type="text" id="paterno-box" name="paterno-box">
-
-                <label>Materno</label>
-                <input type="text" id="materno-box" name="materno-box">
-
-
-                <label for="grado-box">Grado</label>
-                <select id="grado-box" name="grado-box">
-                    {% for grado in grados %}
-                    <option value="{{ grado.codigo }}">{{ grado.etapa }} '{{ grado.seccion }}' {{ grado.nivel }}</option>
-                    {% endfor %}
-                </select>
-
-                <label for="edad-box">Edad</label>
-                <input type="number" id="edad-box" name="edad-box" min="6" max="99">
-
-                <label for="sexo-box">Sexo</label>
-                <select id="sexo-box" name="sexo-box">
-                    <option value="M">Masculino</option>
-                    <option value="F">Femenino</option>
-                </select>
-
-                <label>Apoderado</label>
-                <input type="text" id="apoderado-box" name="apoderado-box">
-                
-                <input type="submit" value="Agregar">
-                <a href="{{ url_for('index') }}">Regresar</a>
-            </fieldset>
-        </form>
-    </div>
-
-</div>
 {% endblock %}

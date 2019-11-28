@@ -1,35 +1,51 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Etapas</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/etapas.css') }}"></link>
-{% endblock %}
-{% block content %}
-<table>
-<thead>
-<tr>
-    <th scope="col" id="col-numero">Número</th>
-    <th scope="col" id="col-nombre">Nombre</th>
-    <th scope="col" id="col-opciones">Opciones</th>
-</tr>
-</thead>
-<tbody>
-    {% for etapa in etapas %}
-    <tr>
-        <td headers="col-numero">{{ etapa.numero }}</td>
-        <td headers="col-nombre">{{ etapa.nombre }}</td>
-        <td headers="col-opciones"><a href="/eliminarEtapa/{{ etapa.nombre }}">Eliminar</a></td>
-    </tr>
-    {% endfor %}
-</tbody>
-</table>
-<div>
-    <form action="" method="post" target="_self">
-        <field>
-            <legend>Etapa</legend>
-            <label for="etapa-box">Nombre:</label>
-            <input type="text" id="nombre-box" name="nombre-box" required autofocus>
-            <input type="submit" value="Registrar"> <a href="{{ url_for('grados') }}">Regresar</a>
-        </field>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/niveles.css') }}"></link>
+{% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">GESTION DE LAS ETAPAS</h1>
+{% endblock %}{% block content %}
+<section style="margin-bottom: 20px;">
+    <form action="" method="post" target="_self" style="width: 700px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+        <fieldset style="padding:20px;">
+            <legend><strong>ETAPA</strong></legend>
+            <span>
+                    <h3 style="margin:0 10px; display: inline; ">Nombre:</h3>
+                    <input type="text" id="nombre-box" name="nombre-box" style="width:300px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;" required autofocus>
+            </span>
+            <span>
+                    <input type="submit" value="Registrar" style=" margin: 0px 30px;  font-size:15px; background-color: #c10000;
+                    color: #eeeeee; padding:14px 20px; border: none; "> 
+            </span>
+        </fieldset>
+        <section style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('grados') }}" style=" margin: 0px 15px; text-decoration: none; background-color: #c10000;
+                color: #eeeeee; font-size:15px; padding:12px 20px;">Regresar</a>
+        </section>
     </form>
-</div>
+</section>
+<section id="tablaseccion" style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px;">
+    <fieldset style="padding:20px; ">
+        <legend><strong>LISTA DE LAS ETAPAS</strong></legend>
+        <table style="margin: 60px auto; width: 1000px;">
+            <thead>
+                <tr>
+                    <th scope="col" id="col-numero" style="width: 110px; border-radius: 10px;">Número</th>
+                    <th scope="col" id="col-nombre" style="width: 110px; border-radius: 10px;">Nombre</th>
+                    <th scope="col" id="col-opciones" style="width: 110px; border-radius: 10px;">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for etapa in etapas %}
+                <tr>
+                    <td headers="col-numero">{{ etapa.numero }}</td>
+                    <td headers="col-nombre">{{ etapa.nombre }}</td>
+                    <td headers="col-opciones"><a href="/eliminarEtapa/{{ etapa.nombre }}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+</section>
+
+
 {% endblock %}

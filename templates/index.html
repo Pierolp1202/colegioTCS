@@ -1,44 +1,41 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Principal</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
-{% endblock %}
-{% block content %}
-<a class="button" href="{{ url_for('asistencia') }}">
-        <i class="far fa-check-circle fa-6x"></i>
-        <p>ASISTENCIA</p>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}"> {% endblock %} {% block titulo %}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">MODULO DE GESTION</h1>
+{% endblock %} {% block content %}
+
+<a class="button" href="{{ url_for('asistencia') }}" style="text-decoration:none;">
+    <i class="far fa-check-circle fa-6x"></i>
+    <p style="font-size:25px; "><strong>ASISTENCIA</strong></p>
 </a>
-<a class="button" href="{{ url_for('grados') }}">
-        <i class="fas fa-chart-bar fa-6x"></i>
-        <p>GRADOS</p>
+<a class="button" href="{{ url_for('grados') }}" style="text-decoration:none;">
+    <i class="fas fa-chart-bar fa-6x"></i>
+    <p style="font-size:25px;"><strong>GRADOS</strong></p>
 </a>
-<a class="button" href="/horarios">
-        <i class="far fa-calendar-alt fa-6x"></i>
-        <p>HORARIOS</p>
+<a class="button" href="/horarios" style="text-decoration:none;">
+    <i class="far fa-calendar-alt fa-6x"></i>
+    <p style="font-size:25px;"><strong>HORARIOS</strong></p>
 </a>
-<a class="button" href="{{ url_for('aulas') }}">
-        <i class="fas fa-home fa-6x"></i>
-        <p>AULAS</p>
+<a class="button" href="{{ url_for('aulas') }}" style="text-decoration:none;">
+    <i class="fas fa-home fa-6x"></i>
+    <p style="font-size:25px;"><strong>AULAS</strong></p>
 </a>
-<a class="button" href="{{ url_for('alumnos') }}">
-        <i class="fas fa-user-graduate fa-6x"></i>
-        <p>ALUMNOS</p>
+<a class="button" href="{{ url_for('alumnos') }}" style="text-decoration:none;">
+    <i class="fas fa-user-graduate fa-6x"></i>
+    <p style="font-size:25px;"><strong>ALUMNOS</strong></p>
 </a>
-<a class="button" href="{{ url_for('calificaciones') }}">
-        <i class="fas fa-clipboard fa-6x"></i>
-        <p>NOTAS</p>
+<a class="button" href="{{ url_for('calificaciones') }}" style="text-decoration:none;">
+    <i class="fas fa-clipboard fa-6x"></i>
+    <p style="font-size:25px;"><strong>NOTAS</strong></p>
 
 </a>
-<a class="button" href="/profesoresCursos">
-        <i class="fas fa-book fa-6x"></i>
-        <p> CURSOS</p>
+<a class="button" href="/profesoresCursos" style="text-decoration:none;">
+    <i class="fas fa-book fa-6x"></i>
+    <p style="font-size:25px;"> <strong>CURSOS</strong></p>
 
 </a>
-<a class="button" href="{{ url_for('iprofesores') }}">
-        <i class="fas fa-chalkboard-teacher fa-6x"></i>
-        <p>EMPLEADOS</p>
-
+<a class="button" href="{{ url_for('iprofesores') }}" style="text-decoration:none;">
+    <i class="fas fa-chalkboard-teacher fa-6x"></i>
+    <p style="font-size:25px;"><strong>EMPLEADOS</strong></p>
 </a>
-
-
 {% endblock %}

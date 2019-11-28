@@ -1,55 +1,69 @@
-{% extends 'base.html' %}
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>Grados</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesor_curso.css') }}">
-{% endblock %}
-{% block content %}
-<div id="sub-container1">
-    <table>
-        <thead>
-            <tr>
-                <th scope="col" id="col-curso">Curso</th>
-                <th scope="col" id="col-profesor">Profesor</th>
-                <th scope="col" id="col-opciones">Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for profesor_curso in profesores_cursos %}
-            <tr>
-                <td headers="col-curso">{{ profesor_curso.curso }}</td>
-                <td headers="col-profesor">{{ profesor_curso.profesor }}</td>
-                <td headers="col-opciones"><a href="/eliminarProfesorCurso/{{ profesor_curso.dni}}/{{ profesor_curso.codigo }}">Eliminar</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div>
-        <form action="" method="POST" target="_self">
-            <fieldset>
-                <legend>Asignar</legend>
-                <label for="curso-box">Curso:</label>
-                <select id="curso-box" name="curso-box">
-                    {% for curso in cursos %}
-                    <option value="{{ curso.codigo }}">{{ curso.nombre }}</option>
-                    {% endfor %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profesor_curso.css') }}"> {% endblock %} {% block titulo%}
+<h1 id="titulo" style="width:100%; display:inline-block; font:bold 50px/1.5 arial, helvetica, sans-serif; color:#999;">ASIGNACION DE CURSOS</h1>
+{% endblock %} {% block content %}
+<div id="sub-container1" style="background: #ccc; height: 1100px;">
+    <section style="margin-bottom: 20px;">
+        <form action="" method="POST" target="_self" style="width: 1300px; margin:0 auto; background-color: white; padding:40px; color:#999; border-radius: 35px;">
+            <fieldset style="padding:20px;">
+                <legend><strong>ASIGNACION DE LOS CURSOS</strong></legend>
+                <span>
+                <h3 style="margin:0 10px; display: inline;">CURSO</h3>
+                <select id="curso-box" name="curso-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                        {% for curso in cursos %}
+                        <option value="{{ curso.codigo }}">{{ curso.nombre }}</option>
+                        {% endfor %}
                 </select>
-                <label for="profesor-box">Profesor:</label>
-                <select id="profesor-box" name="profesor-box">
-                    {% for profesor in profesores %}
-                    <option value="{{ profesor.dni }}">{{ profesor.nombres }} {{ profesor.paterno }} {{ profesor.materno }}</option>
-                    {% endfor %}
+            </span>
+                <span>
+                <h3 style="margin:0 10px; display: inline;">PROFESOR</h3>
+                <select id="profesor-box" name="profesor-box" style="width:200px; padding:10px; margin:10px 0px; font-size:0.8em; border: solid 1px #ccc;">
+                        {% for profesor in profesores %}
+                        <option value="{{ profesor.dni }}">{{ profesor.nombres }} {{ profesor.paterno }} {{ profesor.materno }}</option>
+                        {% endfor %}
                 </select>
-                <input type="submit" value="Agregar">
-                <a href="{{ url_for('index') }}">Regresar</a>
+            </span>
             </fieldset>
+            <section style="text-align: center; margin-top: 30px;">
+                <input type="submit" value="Agregar" style=" margin: 0px 30px;  font-size:15px; background-color: #c10000;
+                        color: #eeeeee; padding:14px 45px; border: none; ">
+                <a href="{{ url_for('index') }}" style=" margin: 0px 15px; text-decoration: none; background-color: #c10000;
+                        color: #eeeeee; font-size:15px; padding:12px 45px;">Regresar</a>
+            </section>
         </form>
+    </section>
+    <section style="width: 1300px; margin:0 auto; background-color: white; padding:20px 20px 600px 20px; color:#999; border-radius: 35px;">
+        <fieldset style="padding:20px; ">
+            <legend><strong>LISTA DE CURSOS ASIGNADOS A PROFESORES</strong></legend>
+            <table style="margin: 60px auto; width: 1000px;">
+                <thead>
+                    <tr>
+                        <th scope="col" id="col-curso" style="width: 180px; border-radius: 10px;">Curso</th>
+                        <th scope="col" id="col-profesor" style="width: 180px; border-radius: 10px;">Profesor</th>
+                        <th scope="col" id="col-opciones" style="width: 180px; border-radius: 10px;">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for profesor_curso in profesores_cursos %}
+                    <tr>
+                        <td headers="col-curso">{{ profesor_curso.curso }}</td>
+                        <td headers="col-profesor">{{ profesor_curso.profesor }}</td>
+                        <td headers="col-opciones"><a href="/eliminarProfesorCurso/{{ profesor_curso.dni}}/{{ profesor_curso.codigo }}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </fieldset>
+    </section>
+</div>
+<section style="width: 1000px; margin:0 auto; background-color: white; padding:20px 20px 200px 0px; color:#999; border-radius: 35px;">
+    <div id="sub-container2" style="background: #ccc; height: 0px; margin-top: 150px; padding-right: 900px;">
+        <a class="option" href="{{ url_for('cursos') }}">
+            <i class="fas fa-glasses fa-6x"></i>
+            <p>CURSOS</p>
+        </a>
     </div>
+</section>
 
-</div>
-<div id="sub-container2">
-    <a class="option" href="{{ url_for('cursos') }}">
-        <i class="fas fa-glasses fa-6x"></i>
-        <p>CURSOS</p>
-    </a>
-</div>
 {% endblock %}
