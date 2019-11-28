@@ -7,9 +7,9 @@ class Conexion(metaclass=MetaSingleton):
     def __init__(self):
         self.__host='localhost'
         self.__port=3306
-        self.__db='colegio'
+        self.__db='colegiodb'
         self.__user='root'
-        self.__password='mysql'
+        self.__password='root'
 
 
     def getConexion(cls):
